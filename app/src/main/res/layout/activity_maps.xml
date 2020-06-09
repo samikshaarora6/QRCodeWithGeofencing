@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/view1"
+    tools:context=".BarcodeScanner">
+
+    <fragment
+        android:id="@+id/fragmentMap"
+        class="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="end|bottom"
+        android:clickable="true"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:paddingRight="6dp"
+        android:contentDescription="SCAN"
+        android:onClick="ScanButton"
+        android:outlineAmbientShadowColor="@color/colorPrimary"
+        android:src="@drawable/camera" />
+
+    <LinearLayout
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/scan"
+        android:animateLayoutChanges="false"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            app:cardCornerRadius="15dp"
+            app:cardElevation="10dp">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/downloadedImage"
+                        android:layout_width="120dp"
+                        android:layout_margin="20dp"
+                        android:layout_height="120dp">
+                    </ImageView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textColor="#ff3300"
+                        android:textSize="20dp"
+                        android:id="@+id/Toast"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textColor="#000000"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:textSize="20dp"
+                        android:id="@+id/name">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:id="@+id/id">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textSize="20dp"
+                        android:textColor="#000000"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:id="@+id/url">
+                    </TextView>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:textColor="#000000"
+                        android:fontFamily="monospace"
+                        android:textStyle="bold"
+                        android:id="@+id/validitiy">
+                    </TextView>
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+
+
+</RelativeLayout>
